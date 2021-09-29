@@ -1,0 +1,29 @@
+{
+  "name": "special-robot",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run test && tsc --p tsconfig.json",
+    "format": "prettier 'src/**/*.ts' --write",
+    "test": "jest --verbose --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/19shubham11/special-robot.git"
+  },
+  "author": "Shubham Chaturvedi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/19shubham11/special-robot/issues"
+  },
+  "homepage": "https://github.com/19shubham11/special-robot#readme",
+  "devDependencies": {
+    "@types/jest": "^27.0.2",
+    "@types/node": "^16.10.2",
+    "jest": "^27.2.4",
+    "prettier": "^2.4.1",
+    "ts-jest": "^27.0.5",
+    "typescript": "^4.4.3"
+  }
+}

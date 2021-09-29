@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "esModuleInterop": true,
+        "isolatedModules": true,
+        "target": "es6",
+        "noImplicitAny": true,
+        "resolveJsonModule": true,
+        "strictNullChecks": true,
+        "moduleResolution": "node",
+        "outDir": "dest",
+        "baseUrl": ".",
+        "paths": {
+            "*": [
+                "node_modules/*"
+            ]
+        }
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+       "**/**/*_test.ts"
+      ],
+}
