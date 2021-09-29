@@ -6,6 +6,8 @@ import { config } from '../config'
 import { GiphyResponse } from './models'
 
 describe('getRandomGIF', () => {
+    afterEach(nock.cleanAll)
+
     it('should return a url if giphy returns 200', async () => {
         const mockURL = 'https://mocked-gif-url'
         const mockResp: GiphyResponse = {
@@ -27,7 +29,7 @@ describe('getRandomGIF', () => {
         nock(config.giphy.baseURL).persist().get(config.giphy.randomGIFPath).query(true).reply(400)
 
         await assert.rejects(api.getRandomGIF('fun'), (err: Error) => {
-            assert.match(err.message, /Giphy Error/)
+            assert.match(err.message, /giphy error/)
             return true
         })
     })
