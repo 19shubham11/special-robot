@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc --p tsconfig.json",
+    "build": "npm run test && tsc --p tsconfig.json",
     "format": "prettier 'src/**/*.ts' --write",
     "test": "jest --verbose --coverage"
   },

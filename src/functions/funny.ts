@@ -6,7 +6,7 @@ const handler: Handler = async (event, _) => {
         const url = await giphyAPI.getRandomGIF('funny')
         return {
             statusCode: 200,
-            body: `<html><body><img src='${url}' c/></body></html>`,
+            body: `<html><body><img src='${url}'/></body></html>`,
         }
     } catch (err) {
         return { statusCode: 500 }
