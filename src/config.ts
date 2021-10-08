@@ -8,7 +8,7 @@ export interface Config {
     giphy: GiphyConfig
 }
 
-function readEnvVars(name: string): string {
+function readEnv(name: string): string | never {
     const key = process.env[name]
 
     if (!key) {
@@ -21,7 +21,7 @@ function readEnvVars(name: string): string {
 const giphyConf: GiphyConfig = {
     baseURL: 'https://api.giphy.com',
     randomGIFPath: '/v1/gifs/random',
-    apiKey: readEnvVars('GIPHY_KEY'),
+    apiKey: readEnv('GIPHY_KEY'),
 }
 
 export const config: Config = {
