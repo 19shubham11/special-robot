@@ -1,3 +1,2 @@
 [build]
   functions = "src/functions"
-  ignore = "git diff  --quiet HEAD^ HEAD README.md"

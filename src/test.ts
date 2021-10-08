@@ -1,4 +1,7 @@
-import * as giphyAPI from './giphy/api'
+import { config } from './config'
+import * as gif from './giphy/api'
+
+const giphyAPI = gif.api(config, 'pg')
 
 async function test() {
     try {

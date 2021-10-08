@@ -1,12 +1,22 @@
 import assert from 'assert'
 import nock from 'nock'
 
-import * as api from './api'
-import { config } from '../config'
+import * as gif from './api'
+import { Config } from '../config'
 import { GiphyResponse } from './models'
 
 describe('getRandomGIF', () => {
     afterEach(nock.cleanAll)
+
+    const mockConf: Config = {
+        giphy: {
+            baseURL: 'http://giphy/something',
+            randomGIFPath: '/random',
+            apiKey: 'lol',
+        },
+    }
+
+    const giphyAPI = gif.api(mockConf, 'g')
 
     it('should return a url if giphy returns 200', async () => {
         const mockURL = 'https://mocked-gif-url'
@@ -19,16 +29,16 @@ describe('getRandomGIF', () => {
             },
         }
 
-        nock(config.giphy.baseURL).persist().get(config.giphy.randomGIFPath).query(true).reply(200, mockResp)
+        nock(mockConf.giphy.baseURL).persist().get(mockConf.giphy.randomGIFPath).query(true).reply(200, mockResp)
 
-        const url = await api.getRandomGIF('fun')
+        const url = await giphyAPI.getRandomGIF('fun')
         assert.strictEqual(url, mockURL)
     })
 
     it('should throw if giphy returns 40x', async () => {
-        nock(config.giphy.baseURL).persist().get(config.giphy.randomGIFPath).query(true).reply(400)
+        nock(mockConf.giphy.baseURL).persist().get(mockConf.giphy.randomGIFPath).query(true).reply(400)
 
-        await assert.rejects(api.getRandomGIF('fun'), (err: Error) => {
+        await assert.rejects(giphyAPI.getRandomGIF('fun'), (err: Error) => {
             assert.match(err.message, /giphy error/)
             return true
         })
