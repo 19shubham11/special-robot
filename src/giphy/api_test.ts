@@ -16,7 +16,7 @@ describe('getRandomGIF', () => {
         },
     }
 
-    const giphyAPI = gif.api(mockConf, 'g')
+    const giphyAPI = gif.api(mockConf, gif.ContentRating.G)
 
     it('should return a url if giphy returns 200', async () => {
         const mockURL = 'https://mocked-gif-url'

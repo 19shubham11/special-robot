@@ -1,7 +1,7 @@
 import { config } from './config'
 import * as gif from './giphy/api'
 
-const giphyAPI = gif.api(config, 'pg')
+const giphyAPI = gif.api(config, gif.ContentRating.PG)
 
 async function test() {
     try {

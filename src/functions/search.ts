@@ -2,7 +2,7 @@ import { Handler } from '@netlify/functions'
 import { config } from '../config'
 import * as gif from '../giphy/api'
 
-const giphyAPI = gif.api(config, 'pg')
+const giphyAPI = gif.api(config, gif.ContentRating.PG)
 
 const handler: Handler = async (event, _) => {
     const q = event.queryStringParameters?.q

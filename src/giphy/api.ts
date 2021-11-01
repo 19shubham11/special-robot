@@ -2,7 +2,12 @@ import { Config } from '../config'
 import { GiphyResponse } from './models'
 import * as http from '../helpers/http'
 
-type ContentRating = 'g' | 'pg' | 'pg13' | 'r'
+export enum ContentRating {
+    G = 'g',
+    PG = 'pg',
+    PG13 = 'pg13',
+    R = 'r',
+}
 
 export interface API {
     getRandomGIF(tag: string): Promise<string> | never
