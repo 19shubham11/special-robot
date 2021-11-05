@@ -25,7 +25,7 @@ export function api(config: Config, rating: ContentRating): API {
             const resp = await http.GET(`${config.giphy.baseURL}${config.giphy.randomGIFPath}`, query)
             const giphyRes = resp.body as GiphyResponse
 
-            return giphyRes.data.image_original_url
+            return giphyRes?.data?.images?.original?.url
         } catch (err) {
             throw new Error('giphy error')
         }

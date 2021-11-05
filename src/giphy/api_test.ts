@@ -23,7 +23,11 @@ describe('getRandomGIF', () => {
         const mockResp: GiphyResponse = {
             data: {
                 type: 'gif',
-                image_original_url: mockURL,
+                images: {
+                    original: {
+                        url: mockURL,
+                    },
+                },
                 id: 'fdfdd',
                 title: 'Mock Gif!',
             },
